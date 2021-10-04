@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DataSiswaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('nama', function () {
-    return 'Nama Saya Kayla Rahmanisa';
-});
+//Route::get('nama', function () {
+//return 'Nama Saya Kayla Rahmanisa';
+//});
 
 Route::get('umur', function () {
     $umur = 17;
@@ -76,3 +78,10 @@ Route::group(['prefix' => 'jurusan'], function () {
         return $nama;
     });
 });
+
+//menampilkan data class berdasarkan method
+Route::get('data-siswa', [DataSiswaController::class, 'dataSiswa']);
+Route::get('nama/{nama}', [DataSiswaController::class, 'nama']);
+
+//menampilkan seluruh isi class
+Route::resource('user', UserController::class);
