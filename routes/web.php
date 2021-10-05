@@ -93,3 +93,7 @@ Route::get('profile', function () {
 Route::get('profile/{nama}', function ($nama) {
     return view('profile.detail', ['nama_user' => $nama]);
 });
+
+Route::get('album', function() {
+    return view('album');
+});
