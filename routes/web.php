@@ -85,3 +85,11 @@ Route::get('nama/{nama}', [DataSiswaController::class, 'nama']);
 
 //menampilkan seluruh isi class
 Route::resource('user', UserController::class);
+
+Route::get('profile', function () {
+    return view('profile.index');
+});
+
+Route::get('profile/{nama}', function ($nama) {
+    return view('profile.detail', ['nama_user' => $nama]);
+});
